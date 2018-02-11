@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mario-style-game</title>
+  <script type="text/javascript" src="js/phaser.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    window.onLoad = function(){
+      var game = new Phaser.Game(800,600, Phaser.CANVAS,'');
+
+      game.state.add('Boot',Game.Boot);
+      game.state.add('Preloader',Game.Preloader);
+      game.state.add('MainMenu',Game.MainMenu);
+      game.state.add('Level1',Game.Level1);
+
+      game.state.start('Boot');
+
+    }
+  </script>
+</body>
+</html>
