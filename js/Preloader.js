@@ -18,6 +18,8 @@ Game.Preloader = {
 		this.load.spritesheet('player','assets/player.png',24,26);
 		// this.load.spritesheet('player')
 		this.load.spritesheet('buttons','assets/button_sprite_sheet.png',193,71);
+
+		this.load.image('drag','assets/drag.png');
 	},
 
 	create:function(){

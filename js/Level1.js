@@ -7,7 +7,7 @@ var playerSpeed = 150;
 var jumpTimer = 0;
 
 var buttons;
-
+var drag;
 
 Game.Level1= {
 	create: function(){
@@ -45,6 +45,11 @@ Game.Level1= {
 		},this,2,1,0);
 
 		button.fixedToCamera = true;
+
+		drag=this.add.sprite(100,100, 'drag');
+		drag.anchor.setTo(0.5,0.5);
+		drag.inputEnabled = true;
+		drag.input.enableDrag(true);
 	},
 	update: function(){
 		this.physics.arcade.collide(player,layer);
