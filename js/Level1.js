@@ -9,8 +9,20 @@ var jumpTimer = 0;
 var buttons;
 var drag;
 
+EnemyBird = function(index,game,x,y){
+	this.bird = game.add.sprite(x,y,'bird');
+	this.bird.anchor.setTo(0.5,0.5);
+	this.bird.name = index.toString();
+	game.physics.enable(this.bird,Phaser.Physics.ARCADE);
+	this.bird.body.immovable = true;
+	this.bird.body.collideWorldBounds = true;
+
+	this.birdTween = game.add.tween(this.bird).to({y:this.bird.y+25}, 2000, 'Linear', true, 0, 100, true);
+
+}
+
 Game.Level1= {
-	create: function(){
+	create: function(game){
 		this.stage.backgroundColor = '#3a5963';
 		map=this.add.tilemap('map',64,64);
 
@@ -50,6 +62,8 @@ Game.Level1= {
 		drag.anchor.setTo(0.5,0.5);
 		drag.inputEnabled = true;
 		drag.input.enableDrag(true);
+
+		new EnemyBird(0,game, player.x + 400, player.y -200);
 	},
 	update: function(){
 		this.physics.arcade.collide(player,layer);

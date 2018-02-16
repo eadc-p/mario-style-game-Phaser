@@ -20,6 +20,8 @@ Game.Preloader = {
 		this.load.spritesheet('buttons','assets/button_sprite_sheet.png',193,71);
 
 		this.load.image('drag','assets/drag.png');
+
+		this.load.image('bird','assets/enemyBird.png');
 	},
 
 	create:function(){
